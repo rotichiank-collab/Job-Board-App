@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./JobDetail.css"
@@ -31,5 +32,4 @@ export default function JobDetails() {
       <p><strong>Email:</strong> {job.email}</p>
       <p><strong>Mobile:</strong> {job.mobileNumber}</p>
     </div>
-  );
-}
+  )}
