@@ -43,5 +43,27 @@
       "qualification": "undergraduate",
       "education": "undergraduate"
     }
+  ],
+  "applications": [
+    {
+      "id": "2de4",
+      "name": "sd",
+      "email": "dsfg@gmail.com",
+      "resume": "dsfg",
+      "coverLetter": "sdf",
+      "jobId": "a390",
+      "status": "Pending",
+      "appliedAt": "2026-02-21T11:44:24.959Z"
+    },
+    {
+      "id": "67e9",
+      "name": "asdf",
+      "email": "sdfd@rfgh",
+      "resume": "sdfvb",
+      "coverLetter": "sedf",
+      "jobId": "11b2",
+      "status": "Pending",
+      "appliedAt": "2026-02-21T11:45:23.073Z"
+    }
   ]
 }

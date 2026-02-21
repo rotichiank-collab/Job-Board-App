@@ -1,11 +1,10 @@
-
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import "./JobDetail.css"
-
+import { useParams, useNavigate } from "react-router-dom";
+import "./JobDetail.css";
 
 export default function JobDetails() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [job, setJob] = useState(null);
 
   useEffect(() => {
@@ -31,5 +30,12 @@ export default function JobDetails() {
       <p><strong>Contact Person:</strong> {job.name}</p>
       <p><strong>Email:</strong> {job.email}</p>
       <p><strong>Mobile:</strong> {job.mobileNumber}</p>
+
+      <button
+        className="apply-btn"
+        onClick={() => navigate(`/apply/${job.id}`)}>
+        Apply Now
+      </button>
     </div>
-  )}
+  );
+}

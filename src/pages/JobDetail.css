@@ -34,3 +34,17 @@
     margin: 8px 0;
     font-size: 15px;
 }
+.apply-btn {
+    background-color: #2563eb;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .apply-btn:hover {
+    background-color: #1d4ed8;
+  }
+  
