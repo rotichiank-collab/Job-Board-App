@@ -4,5 +4,5 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #2563eb; /* Optional: blue background for the page */
+    background-color: rgb(211, 208, 208);
   }

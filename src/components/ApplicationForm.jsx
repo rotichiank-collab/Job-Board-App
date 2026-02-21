@@ -3,14 +3,15 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import "./ApplicationForm.css";
 
-function ApplicationForm({ jobId }) {
+function ApplicationForm({ jobId, jobTitle }) {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     resume: "",
-    coverLetter: ""
+    coverLetter: "",
+    qualifications: ""
   });
 
   const [loading, setLoading] = useState(false);
@@ -40,16 +41,11 @@ function ApplicationForm({ jobId }) {
     try {
       setLoading(true);
 
-      const response = await fetch(
-        "http://localhost:3001/applications",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(newApplication)
-        }
-      );
+      const response = await fetch("http://localhost:3001/applications", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newApplication)
+      });
 
       if (!response.ok) {
         throw new Error("Failed to submit application");
@@ -57,17 +53,15 @@ function ApplicationForm({ jobId }) {
 
       toast.success("Application submitted successfully!");
 
-      // Clear form
       setFormData({
         name: "",
         email: "",
         resume: "",
-        coverLetter: ""
+        coverLetter: "",
+        qualifications: ""
       });
 
-      // Redirect (change to /tracker if that route exists)
       navigate("/");
-
     } catch (error) {
       console.error(error);
       toast.error("Something went wrong. Try again.");
@@ -77,44 +71,78 @@ function ApplicationForm({ jobId }) {
   }
 
   return (
-    <form className="application-form" onSubmit={handleSubmit}>
+    <div className="application-form-container">
       
-      <input
-        type="text"
-        name="name"
-        placeholder="Full Name *"
-        value={formData.name}
-        onChange={handleChange}
-      />
+      <form className="application-form" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="name">Full Name *</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your full name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-      <input
-        type="email"
-        name="email"
-        placeholder="Email *"
-        value={formData.email}
-        onChange={handleChange}
-      />
+        <div className="form-group">
+          <label htmlFor="email">Email *</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="e.g sstyrec@gmail.com"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-      <input
-        type="text"
-        name="resume"
-        placeholder="Resume Link (Google Drive, etc)"
-        value={formData.resume}
-        onChange={handleChange}
-      />
+        <div className="form-group">
+          <label htmlFor="resume">Resume Link</label>
+          <input
+            type="text"
+            id="resume"
+            name="resume"
+            placeholder="Google Drive, Dropbox, etc."
+            value={formData.resume}
+            onChange={handleChange}
+          />
+        </div>
 
-      <textarea
-        name="coverLetter"
-        placeholder="Cover Letter"
-        rows="5"
-        value={formData.coverLetter}
-        onChange={handleChange}
-      />
+        <div className="form-group">
+          <label htmlFor="coverLetter">Cover Letter</label>
+          <textarea
+            id="coverLetter"
+            name="coverLetter"
+            placeholder="write your cover letter here"
+            rows="5"
+            value={formData.coverLetter}
+            onChange={handleChange}
+          />
+        </div>
 
-      <button type="submit" disabled={loading}>
-        {loading ? "Submitting..." : "Submit Application"}
-      </button>
-    </form>
+        <div className="form-group">
+          <label htmlFor="qualifications">
+            Why do you think you are qualified for the job?
+          </label>
+          <textarea
+            id="qualifications"
+            name="qualifications"
+            placeholder="Describe your qualifications"
+            rows="5"
+            value={formData.qualifications}
+            onChange={handleChange}
+          />
+        </div>
+
+        <button type="submit" disabled={loading}>
+          {loading ? "Submitting..." : "Submit Application"}
+        </button>
+      </form>
+    </div>
   );
 }
 
