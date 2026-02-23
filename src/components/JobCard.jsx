@@ -23,18 +23,6 @@ export default function JobCard({ job }) {
         <Link to={`/jobs/${job.id}`}>
           <button>View Details</button>
         </Link>
-        <Link to={`/update/${job.id}`}>
-        <button>Update</button>        
-        </Link>
-        
-        <button onClick={() => deleteJob(job.id)}>
-          Delete
-        </button>
-      </div>
-      <div className="card-buttons">
-        <Link to={`/jobs/${job.id}`}>
-          <button className="view-btn">View</button>
-        </Link>
 
         <button
           className="edit-btn"
