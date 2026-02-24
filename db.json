@@ -66,6 +66,21 @@
       "location": "Kisumu",
       "qualification": "primary school certificate",
       "education": "primary school"
+    },
+    {
+      "id": "e3d8",
+      "jobTitle": "Footbal coach",
+      "jobDescription": "Trainer for under 14s",
+      "company": "Talanta sports",
+      "salary": 23000,
+      "startDate": "2026-02-28",
+      "location": "Mombasa",
+      "qualification": "P/E",
+      "education": "N/a",
+      "name": "Mavuno",
+      "mobileNumber": "076438234",
+      "email": "kjhgyujmnb@gmail.com",
+      "createdAt": "2026-02-23T20:41:44.344Z"
     }
   ],
   "applications": [
